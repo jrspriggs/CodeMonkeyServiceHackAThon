@@ -16,6 +16,7 @@ import com.lmig.ci.policy.services.codemonkey.vo.ClassCode;
 public class ClassCodeDAO {
 	
 	public List<ClassCode> getClassCodesBySicCode(String state, String sicCode) {
+		System.out.println("***CHERYL - ClassCodeDAO - state : sicCode = " + state + " : "  + sicCode);
 		return getClassCode(state, sicCode);
 	}
 	
