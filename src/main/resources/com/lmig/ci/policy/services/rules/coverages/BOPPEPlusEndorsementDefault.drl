@@ -10,6 +10,6 @@ package com.lmig.ci.policy.services.rules.coverages
 		cov.setName("BOP Property Extension Plus Endorsement");
 		cov.setSelected("Y");
 		cov.setType("O");
-		cov.setPremiumAmount("85.55");
+		cov.setPremiumAmount("305.00");
 		insertLogical( cov ); 
 	end 

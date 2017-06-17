@@ -9,6 +9,6 @@ package com.lmig.ci.policy.services.rules.coverages
 		cov.setName("Hired Auto Physical Damage");
 		cov.setSelected("N");
 		cov.setType("O");
-		cov.setPremiumAmount("33.44");
+		cov.setPremiumAmount("61.00");
 		insertLogical( cov ); 
 	end 

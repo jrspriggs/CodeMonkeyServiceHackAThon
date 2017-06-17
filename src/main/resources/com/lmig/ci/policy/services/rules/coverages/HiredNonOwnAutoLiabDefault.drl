@@ -9,6 +9,6 @@ package com.lmig.ci.policy.services.rules.coverages
 		cov.setName("Hired and Non-Owned Auto Liability");
 		cov.setSelected("Y");
 		cov.setType("O");
-		cov.setPremiumAmount("55.22");
+		cov.setPremiumAmount("41.00");
 		insertLogical( cov ); 
 	end 

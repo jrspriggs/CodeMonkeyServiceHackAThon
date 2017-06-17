@@ -11,7 +11,7 @@ package com.lmig.ci.policy.services.rules.coverages
 		cov.setSelected("Y");
 		cov.setValue("200000");
 		cov.setType("S");
-		cov.setPremiumAmount("95.95");
+		cov.setPremiumAmount("1620.00");
 		insertLogical( cov ); 
 	end 
 
@@ -23,6 +23,6 @@ package com.lmig.ci.policy.services.rules.coverages
 		cov.setSelected("Y");
 		cov.setValue("150000");
 		cov.setType("S");
-		cov.setPremiumAmount("90.22");
+		cov.setPremiumAmount("1315.00");
 		insertLogical( cov ); 
 	end 
