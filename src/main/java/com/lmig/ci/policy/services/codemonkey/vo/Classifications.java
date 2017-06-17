@@ -18,17 +18,4 @@ public class Classifications {
 		this.classCodes = classCodes;
 	}
 	
-	public void addClassCodes(List<ClassCode> classCodes) {
-		this.classCodes.addAll(classCodes);
-	}
-	
-	public String getJson() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("{\"classifications\": {");
-		for (ClassCode classCode : this.classCodes) {
-			sb.append(classCode.getJson());
-		}
-		sb.append("}}");
-		return sb.toString();
-	}
 }

@@ -171,36 +171,36 @@ public class ClassCode {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getJson() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("{\"classCode\": {");
-		sb.append("\"riskStateAb\": \"" + this.riskStateAb + "\", ");
-		sb.append("\"policyTypeCd\": \"" + this.policyTypeCd + "\", ");
-		sb.append("\"productTypeCd\": \"" + this.productTypeCd + "\", ");
-		sb.append("\"internalCd\": \"" + this.internalCd + "\", ");
-		sb.append("\"seqNo\": \"" + this.seqNo + "\", ");
-		sb.append("\"writtenDate\": \"" + this.writtenDate + "\", ");
-		sb.append("\"endDate\": \"" + this.endDate + "\", ");
-		sb.append("\"ratingId\": \"" + this.ratingId + "\", ");
-		sb.append("\"textId\": \"" + this.textId + "\", ");
-		sb.append("\"classCd\": \"" + this.classCd + "\", ");
-		sb.append("\"programId\": \"" + this.programId + "\", ");
-		sb.append("\"replacementId\": \"" + this.replacementId + "\", ");
-		sb.append("\"glInternalCd\": \"" + this.glInternalCd + "\", ");
-		sb.append("\"glClsCd\": \"" + this.glClsCd + "\", ");
-		sb.append("\"sicCd\": \"" + this.sicCd + "\", ");
-		sb.append("\"defaultLimit\": \"" + this.defaultLimit + "\", ");
-		sb.append("\"tivLimit\": \"" + this.tivLimit + "\", ");
-		sb.append("\"premBasisTxt\": \"" + this.premBasisTxt + "\", ");
-		sb.append("\"inclProducts\": \"" + this.inclProducts + "\", ");
-		sb.append("\"displayTextId\": \"" + this.displayTextId + "\", ");
-		sb.append("\"roleCdBusGrpCd\": \"" + this.roleCdBusGrpCd + "\", ");
-		sb.append("\"pkgTypeId\": \"" + this.pkgTypeId + "\", ");
-		sb.append("\"classMessageId\": \"" + this.classMessageId + "\", ");
-		sb.append("\"description\": \"" + this.description + "\", ");
-		sb.append("}}");
-	
-		return sb.toString();
-	}
+//	public String getJson() {
+//		StringBuilder sb = new StringBuilder();
+//		sb.append("{\"classCode\": {");
+//		sb.append("\"riskStateAb\": \"" + this.riskStateAb + "\", ");
+//		sb.append("\"policyTypeCd\": \"" + this.policyTypeCd + "\", ");
+//		sb.append("\"productTypeCd\": \"" + this.productTypeCd + "\", ");
+//		sb.append("\"internalCd\": \"" + this.internalCd + "\", ");
+//		sb.append("\"seqNo\": \"" + this.seqNo + "\", ");
+//		sb.append("\"writtenDate\": \"" + this.writtenDate + "\", ");
+//		sb.append("\"endDate\": \"" + this.endDate + "\", ");
+//		sb.append("\"ratingId\": \"" + this.ratingId + "\", ");
+//		sb.append("\"textId\": \"" + this.textId + "\", ");
+//		sb.append("\"classCd\": \"" + this.classCd + "\", ");
+//		sb.append("\"programId\": \"" + this.programId + "\", ");
+//		sb.append("\"replacementId\": \"" + this.replacementId + "\", ");
+//		sb.append("\"glInternalCd\": \"" + this.glInternalCd + "\", ");
+//		sb.append("\"glClsCd\": \"" + this.glClsCd + "\", ");
+//		sb.append("\"sicCd\": \"" + this.sicCd + "\", ");
+//		sb.append("\"defaultLimit\": \"" + this.defaultLimit + "\", ");
+//		sb.append("\"tivLimit\": \"" + this.tivLimit + "\", ");
+//		sb.append("\"premBasisTxt\": \"" + this.premBasisTxt + "\", ");
+//		sb.append("\"inclProducts\": \"" + this.inclProducts + "\", ");
+//		sb.append("\"displayTextId\": \"" + this.displayTextId + "\", ");
+//		sb.append("\"roleCdBusGrpCd\": \"" + this.roleCdBusGrpCd + "\", ");
+//		sb.append("\"pkgTypeId\": \"" + this.pkgTypeId + "\", ");
+//		sb.append("\"classMessageId\": \"" + this.classMessageId + "\", ");
+//		sb.append("\"description\": \"" + this.description + "\", ");
+//		sb.append("}}");
+//	
+//		return sb.toString();
+//	}
 	
 }
