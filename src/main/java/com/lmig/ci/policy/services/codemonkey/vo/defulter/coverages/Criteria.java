@@ -3,7 +3,7 @@ package com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages;
 public class Criteria {
 	
 	private String state;
-	private String numberOfEmployees;
+	private String classCode;
 
 	public String getState() {
 		return state;
@@ -13,11 +13,11 @@ public class Criteria {
 		this.state = state;
 	}
 
-	public String getNumberOfEmployees() {
-		return numberOfEmployees;
+	public String getClassCode() {
+		return classCode;
 	}
 	
-	public void setNumberOfEmployees(String numberOfEmployees) {
-		this.numberOfEmployees = numberOfEmployees;
+	public void setClassCode(String classCode) {
+		this.classCode = classCode;
 	}
 }
