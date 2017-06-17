@@ -150,6 +150,12 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
         </dependency> 
+                
+		<dependency> 
+			<groupId>org.kie</groupId> 
+			<artifactId>kie-ci</artifactId> 
+			<version>RELEASE</version> 
+		</dependency> 
         
 	</dependencies>
 	
