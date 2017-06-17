@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Implementation-Title: CodeMonkeyServiceHackAThon
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: n0172213
+Implementation-Vendor-Id: CodeMonkeyServiceHackAThon
+Build-Jdk: 1.8.0_66
+Implementation-URL: http://projects.spring.io/spring-boot/ciit-spring-
+ boot-minimal-parent/ciit-spring-boot-parent/CodeMonkeyServiceHackATho
+ n/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: LibertyForge
+Main-Class: org.springframework.boot.sample.tomcat.SampleTomcatApplica
+ tion
+
