@@ -1,5 +1,0 @@
-eclipse.preferences.version=1
-extraProperties=sonar.java.coveragePlugin\=jacoco\r\nsonar.jacoco.itReportPath\=D\:\\Workspaces\\CodeMonkeyServiceHackAThon\\CodeMonkeyServiceHackAThon/target/coverage-reports/jacoco-it.exec\r\nsonar.jacoco.reportPath\=D\:\\Workspaces\\CodeMonkeyServiceHackAThon\\CodeMonkeyServiceHackAThon/target/coverage-reports/jacoco-unit.exec\r\nsonar.dynamicAnalysis\=reuseReports
-projectKey=CodeMonkeyServiceHackAThon\:CodeMonkeyServiceHackAThon
-serverUrl=http\://localhost\:9000
-version=2
