@@ -1,0 +1,14 @@
+package com.lmig.ci.policy.services.rules.coverages 
+
+	import com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages.*; 
+	import com.lmig.ci.policy.services.codemonkey.vo.*; 
+
+	rule "HiredNonOwnAutoLiabDefault Is Happy Path" when 
+	then 
+		Coverage cov = new Coverage();
+		cov.setName("Hired and Non-Owned Auto Liability");
+		cov.setSelected("Y");
+		cov.setType("O");
+		cov.setPremiumAmount("55.22");
+		insertLogical( cov ); 
+	end 

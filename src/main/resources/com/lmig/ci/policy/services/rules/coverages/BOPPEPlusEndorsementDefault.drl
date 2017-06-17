@@ -1,0 +1,15 @@
+package com.lmig.ci.policy.services.rules.coverages 
+
+	import com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages.*; 
+	import com.lmig.ci.policy.services.codemonkey.vo.*; 
+
+	rule "BOPPEPlusEndorsement Is Higher ClassCode" when 
+		$crit : Criteria( classCode in ("002816") ) 
+	then 
+		Coverage cov = new Coverage();
+		cov.setName("BOP Property Extension Plus Endorsement");
+		cov.setSelected("Y");
+		cov.setType("O");
+		cov.setPremiumAmount("85.55");
+		insertLogical( cov ); 
+	end 
