@@ -21,6 +21,7 @@ import com.lmig.ci.policy.services.codemonkey.vo.ClassCode;
 import com.lmig.ci.policy.services.codemonkey.vo.ClassCodeSearch;
 import com.lmig.ci.policy.services.codemonkey.vo.Classifications;
 import com.lmig.ci.policy.services.codemonkey.vo.PrimaryClassCode;
+import com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages.Criteria;
 
 /**
  * @author n0172213
@@ -36,6 +37,9 @@ public class DNBServiceManager {
     
     @Autowired
     private ClassCodeClient classCodeClient;
+    
+    @Autowired
+    private CoverageClient coverageClient;
     
 	public String search(String req) {
 
@@ -66,7 +70,10 @@ public class DNBServiceManager {
         String classCodeReq = buildClassCodeRequest(response);
         String classCodes = classCodeClient.classification(classCodeReq);
         LOGGER.error("classCodeReq: " + classCodeReq + " classCodeResponse: " + classCodes);
-        return buildDetailsResponse(response, classCodes);
+        String covReq = buildCoverageRequest(response, classCodes);
+        String covResponse = coverageClient.coverage(covReq);
+        LOGGER.error("classCodeReq: " + classCodeReq + " classCodeResponse: " + classCodes);
+        return buildDetailsResponse(response, classCodes, covResponse);
 		
 	}
 	
@@ -114,10 +121,48 @@ public class DNBServiceManager {
 		}
 	}
 	
-	String buildDetailsResponse(String response, String classCodes) {
+	String buildCoverageRequest(String response, String classCodeResponse) {
+		
+		Criteria criteria = new Criteria();
+
+		PrimaryClassCode primaryClassCode = getPrimaryClassCode(classCodeResponse);
+		criteria.setClassCode(primaryClassCode.getClassCode());
+
+        JSONObject jsonObject = new JSONObject(response);
+        JSONObject locations = jsonObject.getJSONObject("locations");
+        JSONArray location = locations.getJSONArray("location");
+        JSONObject firstLocation = location.getJSONObject(0);
+        criteria.setState(firstLocation.getString("state"));
+        try {
+			return new ObjectMapper().writeValueAsString(criteria); 
+		}catch (Exception e) {
+			throw new RuntimeException("Caught exception: " + e.getClass().getName() + " " + e.getMessage(),e);
+		}
+	}
+	
+	String buildDetailsResponse(String response, String classCodes, String covResponse) {
+
+		PrimaryClassCode primaryClassCode = getPrimaryClassCode(classCodes);
+		try {	        	        
+			String primaryClassCodeJson = new ObjectMapper().writeValueAsString(primaryClassCode);
+			int p = response.lastIndexOf('}');
+			
+			StringBuilder sb = new StringBuilder(response.substring(0, p));
+			sb.append(", \"primaryClassCode\": ");
+			sb.append(primaryClassCodeJson);
+			sb.append(", \"coverages\": ");
+			sb.append(covResponse);
+			sb.append(" }");
+			LOGGER.error("Details Response: " + sb.toString());
+			return sb.toString();
+		} catch (Exception e) {
+			throw new RuntimeException("Caught exception: " + e.getClass().getName() + " " + e.getMessage(),e);
+		}
+	}
+	
+	PrimaryClassCode getPrimaryClassCode(String classCodes) {
 
 		PrimaryClassCode primaryClassCode = new PrimaryClassCode();
-		Classifications classifications = null;
 		primaryClassCode.setClassCode("00000");
 		primaryClassCode.setClassCodeDesc("unknown");
 		try {
@@ -135,15 +180,7 @@ public class DNBServiceManager {
 	        		}
 	        	}
 	        }
-			String primaryClassCodeJson = new ObjectMapper().writeValueAsString(primaryClassCode);
-			int p = response.lastIndexOf('}');
-			
-			StringBuilder sb = new StringBuilder(response.substring(0, p));
-			sb.append(", \"primaryClassCode\": ");
-			sb.append(primaryClassCodeJson);
-			sb.append(" }");
-			LOGGER.error("Details Response: " + sb.toString());
-			return sb.toString();
+			return primaryClassCode;
 		} catch (Exception e) {
 			throw new RuntimeException("Caught exception: " + e.getClass().getName() + " " + e.getMessage(),e);
 		}
