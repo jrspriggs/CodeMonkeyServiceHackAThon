@@ -1,0 +1,28 @@
+package com.lmig.ci.policy.services.rules.coverages 
+
+	import com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages.*; 
+	import com.lmig.ci.policy.services.codemonkey.vo.*; 
+
+	rule "Building Is Higher ClassCode" when 
+		$crit : Criteria( classCode in ("002816") ) 
+	then 
+		Coverage cov = new Coverage();
+		cov.setName("Building");
+		cov.setSelected("Y");
+		cov.setValue("350000");
+		cov.setType("S");
+		cov.setPremiumAmount("1670.00");
+		insertLogical( cov ); 
+	end 
+
+	rule "Building Is Happy Path" when 
+		$crit : Criteria( classCode not in ("002816") ) 
+	then 
+		Coverage cov = new Coverage();
+		cov.setName("Building");
+		cov.setSelected("Y");
+		cov.setValue("250000");
+		cov.setType("S");
+		cov.setPremiumAmount("1314.00");
+		insertLogical( cov ); 
+	end 

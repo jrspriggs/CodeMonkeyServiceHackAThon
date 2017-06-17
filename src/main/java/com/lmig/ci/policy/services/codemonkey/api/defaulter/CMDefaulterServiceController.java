@@ -2,6 +2,7 @@ package com.lmig.ci.policy.services.codemonkey.api.defaulter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lmig.ci.policy.services.codemonkey.classCode.CMClassCodeService;
 import com.lmig.ci.policy.services.codemonkey.defaulter.CMCoverageDefaulterService;
-import com.lmig.ci.policy.services.codemonkey.vo.Classifications;
 
 /**
  * @author n0172213
@@ -23,12 +22,18 @@ public class CMDefaulterServiceController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CMDefaulterServiceController.class);
     private static final String APPLICATION_JSON = "application/json";
 
+    private final CMCoverageDefaulterService service; 
+
+	@Autowired 
+	public CMDefaulterServiceController(CMCoverageDefaulterService service) { 
+		this.service = service; 
+	} 
+
     @RequestMapping(value = "/v1/defaulter/coverages", consumes = { APPLICATION_JSON }, produces = { APPLICATION_JSON }, method = RequestMethod.POST)
     public ResponseEntity<String> defaultCoverages(@RequestBody String request) {
 
         LOGGER.info("Entering defaultCoverages method.");
         try {
-        	CMCoverageDefaulterService service = new CMCoverageDefaulterService();
         	String defaults = service.getDefaultedCoverages(request);
         	
             return ResponseEntity.status(HttpStatus.OK).body(defaults);

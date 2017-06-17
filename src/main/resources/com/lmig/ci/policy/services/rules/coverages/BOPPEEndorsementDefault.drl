@@ -1,0 +1,15 @@
+package com.lmig.ci.policy.services.rules.coverages 
+
+	import com.lmig.ci.policy.services.codemonkey.vo.defulter.coverages.*; 
+	import com.lmig.ci.policy.services.codemonkey.vo.*; 
+
+	rule "BOPPEEndorsement Is Happy Path" when 
+		$crit : Criteria( classCode not in ("002816") ) 
+	then 
+		Coverage cov = new Coverage();
+		cov.setName("BOP Property Extension Endorsement");
+		cov.setSelected("Y");
+		cov.setType("O");
+		cov.setPremiumAmount("9.00");
+		insertLogical( cov ); 
+	end 

@@ -16,7 +16,6 @@ import com.lmig.ci.policy.services.codemonkey.vo.ClassCode;
 public class ClassCodeDAO {
 	
 	public List<ClassCode> getClassCodesBySicCode(String state, String sicCode) {
-		System.out.println("***CHERYL - ClassCodeDAO - state : sicCode = " + state + " : "  + sicCode);
 		return getClassCode(state, sicCode);
 	}
 	
@@ -51,6 +50,36 @@ public class ClassCodeDAO {
 			classCode.setDescription("Office: Business Management Consulting");
 			classCodes.add(classCode);
 		}
+		
+		if (sicCode.equals("5461")) {
+			ClassCode classCode = new ClassCode();
+			classCode.setRiskStateAb(state);
+			classCode.setPolicyTypeCd("05");
+			classCode.setProductTypeCd("001");
+			classCode.setInternalCd("50609");
+			classCode.setSeqNo("1");
+			classCode.setWrittenDate("2017-03-01");
+			classCode.setEndDate("9999-12-31");
+			classCode.setRatingId("5506");
+			classCode.setTextId("209089");
+			classCode.setClassCd("888551");
+			classCode.setProgramId("64");
+			classCode.setReplacementId("0");
+			classCode.setGlInternalCd("002816");
+			classCode.setGlClsCd("10100");
+			classCode.setSicCd("5461");
+			classCode.setDefaultLimit("0");
+			classCode.setTivLimit("0");
+			classCode.setPremBasisTxt("0");
+			classCode.setInclProducts("Y");
+			classCode.setDisplayTextId("209089");
+			classCode.setRoleCdBusGrpCd("B");
+			classCode.setPkgTypeId("00.00");
+			classCode.setClassMessageId("0");
+			classCode.setDescription("Bakeries - Baking on Premises - Retail");
+			classCodes.add(classCode);
+		}
+
 		return classCodes;
 	}
 
